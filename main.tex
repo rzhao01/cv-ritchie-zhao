@@ -1,0 +1,301 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+\documentclass[11pt,a4paper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% modern themes
+\moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}
+\usepackage{fontawesome}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{ulem}
+% if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+\usepackage{multicol}
+%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+\usepackage{import}
+
+\newcommand{\fixme}[1]{\textcolor{red}{\small [~#1~]}}
+\newcommand{\TT}[1]{\texttt{#1}}
+\newcommand{\BF}[1]{\textbf{#1}}
+\newcommand{\IT}[1]{\textit{#1}}
+\newcommand{\UL}[1]{\uline{#1}}
+\newcommand{\RM}[1]{\textrm{#1}}
+\newcommand{\SUP}[1]{\textsuperscript{#1}}
+
+% personal data
+\name{Ritchie Zhao}{}
+% \title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
+\address{409 Auburn Street \#2}{Ithaca, New York 14850}{USA}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+% \phone[mobile]{909-839-3097}                   % optional, remove / comment the line if not wanted
+% \phone[fixed]{01234 123456}                    % optional, remove / comment the line if not wanted
+%\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
+% \email{xpan1@swarthmore.edu}                               % optional, remove / comment the line if not wanted
+% \homepage{shawnpan.me}                         % optional, remove / comment the line if not wanted
+% \extrainfo{}                 % optional, remove / comment the line if not wanted
+%\photo[64pt][0.4pt]{picture}                       % optional, remove / comment the line if not wanted; '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+
+\newcommand*{\customcventry}[7][.5em]{
+  \begin{tabular}{@{}l} 
+    {\large \bfseries #4}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+    {\large \bfseries #5}
+  \end{tabular} \\
+  \begin{tabular}{@{}l} 
+    {\itshape #3}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+    {\itshape #2}
+  \end{tabular}
+  \ifx&#7&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+     \small#7%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+  
+\newcommand*{\customcventrytwo}[9][.5em]{
+  \begin{tabular}{@{}l} 
+    {\large \bfseries #6}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+    {\large \bfseries #7}
+  \end{tabular} \\
+  \begin{tabular}{@{}l} 
+    {\itshape #4}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+    {\itshape #2}
+  \end{tabular} \\
+  \begin{tabular}{@{}l} 
+    {\itshape #5}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+    {\itshape #3}
+  \end{tabular}
+  \ifx&9&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+     \small#9%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\newcommand*{\customcvproject}[4][.5em]{
+%   \vfill\noindent
+  \begin{tabular}{@{}l} 
+    {\large \bfseries #2}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+    {\large \itshape #3}
+  \end{tabular}
+  \ifx&#4&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+     \small#4%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\newcommand*{\customcvpub}[5][.5em]{
+  {#2 ''\UL{#3}``. \IT{#4}, #5}
+  \par\addvspace{#1}
+}
+
+\setlength{\tabcolsep}{12pt}
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+\vspace*{-22mm}
+
+\begin{center}
+\begin{tabular}{ c c c c }
+ \faGlobe\enspace rzhao01.github.io & \faEnvelopeO\enspace rz252@cornell.edu & \faGithub\enspace rzhao01 &  \faMobile\enspace +1 607-379-7088\\  
+\end{tabular}
+\end{center}
+
+%----------------------------------------------------------------------------------
+\section{RESEARCH INTERESTS}
+\vspace{-1mm}
+Hardware specialization for machine learning, efficient neural network architectures, high-level synthesis (HLS) for FPGAs, methodology and automation for hardware design
+
+%----------------------------------------------------------------------------------
+\section{SKILLS}
+\vspace{-1mm}
+\begin{minipage}{\maincolumnwidth}%
+    Python, C, C++, Vivado HLS, TensorFlow, PyTorch, Verilog, LaTek
+\end{minipage}%
+      
+%----------------------------------------------------------------------------------
+\section{EDUCATION}
+\vspace{-1mm}
+{\customcventry{Aug 2014 - Sept 2019 (Expected)}{PhD in Electrical and Computer Engineering}{Cornell University}{Ithaca, NY}{}{Advisor: Zhiru Zhang}}
+
+{\customcventry{Sept 2009 - May 2014}{BS in Electrical and Computer Engineering}{University of Toronto}{Toronto, ON}{}{GPA: 3.92, Graduated with Honors}}
+
+%----------------------------------------------------------------------------------
+\section{RESEARCH PROJECTS}
+\vspace{-1mm}
+{\customcvproject{DNN Quantization with Outlier Channel Splitting [1]}{Aug 2018 - Feb 2019}
+  {\begin{itemize}
+    \item Proposed a technique to improve DNN quantization without retraining, targeting scenarios where training for quantization is not possible (e.g. ML service providers with black-box customer models).
+    \item Results show improved accuracy over state-of-the-art clipping methods. Open-source code available.
+  \end{itemize}
+  }
+}
+
+{\customcvproject{Efficient DNNs with Unitary Group Convolutions [2]}{Aug 2017 - May 2018}
+{\begin{itemize}
+  \item Explored the composition of group convolutions with unitary transforms to build efficient DNN architectures; this idea generalizes ShuffleNet and CirCNN from literature.
+  \item Proposed to use the hardware-efficient Hadamard transform. Hadamard networks outperform ShuffleNet with no parameter/multiply overhead and matches CirCNN with fewer multiplies.
+\end{itemize}
+}
+}
+
+{\customcvproject{Binarized Neural Network Accelerator for FPGA [4,5]}{May 2016 – May 2017}
+{\begin{itemize}
+  \item Designed an accelerator for BNNs on an embedded FPGA platform (Xilinx Zedboard). Achieved 15x speedup over embedded GPU with less power and negligible accuracy loss.
+  \item The same accelerator was ported to Celerity, an academic ASIC taped-out to silicon at TSMC 16nm process.
+\end{itemize}
+}
+}
+
+{\customcvproject{Synthesizable Halide-to-Verilog}{Jan 2016 – Apr 2016}
+{\begin{itemize}
+  \item Modified the Halide embedded DSL to generate HLS-synthesizable code and to support HLS pragmas.
+  \item Project was passed off to another PhD student.
+\end{itemize}
+}
+}
+
+{\customcvproject{Decoupled Data Structures for HLS [6]}{Jun 2015 – Jan 2016}
+{\begin{itemize}
+  \item Proposed mapping certain data structures (e.g. heaps, hash tables) to a decoupled architectural template. This enables a modular design flow while exploiting parallelism between method calls and the main program.
+\end{itemize}
+}
+}
+
+{\customcvproject{Joint Scheduling and Mapping for HLS [7]}{Aug 2014 – May 2015}
+{\begin{itemize}
+  \item Developed a mixed-ILP method to jointly perform HLS pipeline scheduling and downstream LUT-mapping.
+  \item Results show significant area savings in logic-heavy designs via cross-layer optimization.
+  \item Implemented the technique as an LLVM pass using IBM ILOG CLEX as the mILP solver.
+\end{itemize}
+}
+}
+
+%----------------------------------------------------------------------------------
+\newpage
+\section{INDUSTRY EXPERIENCE}
+\vspace{-1mm}
+{\customcventrytwo{May 2018 - Aug 2018}{May 2017 - Aug 2017}{Research Intern}{Research Intern}{Microsoft Research}{Redmond, WA}{}
+{\begin{itemize}
+  \item Researched and prototyped novel techniques to quantize DNNs for efficient deployment on the Brainwave FPGA accelerator system. Gathered experimental data on the quantized accuracy of internal models.
+  \item Assisted in engineering a TensorFlow quantization library used in serving production DNN models.
+  \item Proposed and developed new methods to automate the quantization flow of trained models, making quantization more user-friendly for non-experts in ML.
+  \item Contributed results to the first technical publication of Brainwave [3].
+\end{itemize}
+}
+}
+
+{\customcventry{May 2014 - Aug 2014}{Extreme Blue Technical Intern}{IBM}{Toronto, ON}{}
+{\begin{itemize}
+  \item Assisted the development of IBM Dash, a mathematical programming language which generates optimized code for heterogeneous hardware systems.
+  \item Engineered the GPU back-end for Dash using CUDA. Obtained 16x speedup on option pricing with Monte Carlo Black-Scholes compared to hand-optimized C.
+  \item Created a presentation and web demo to pitch the project to IBM executives, culminating in a team pitch at the IBM headquarters in Armonk.
+\end{itemize}
+}
+}
+
+{\customcventry{May 2012 - Aug 2013}{Engineering Intern}{Altera Corporation}{Toronto, ON}{}
+{\begin{itemize}
+  \item Assisted timing team to create and maintain timing models for Altera's IV and V FPGA families.
+  \item Developed internal features such as piecewise-linear waveform modeling and per-node clock uncertainty.
+  \item Performed end-to-end testing for the Quartus II Timing Analyzer.
+  \item Created software patches for a key Altera customer while coordinating with field engineers.
+\end{itemize}
+}
+}
+
+%\begin{flushleft}
+%\textit{Technology Analyst}\hspace{285.0pt}\textbf{Edinburgh, Scotland}
+%\begin{itemize}
+%    \item Built a continuous delivery model for my client’s Development %Team.\hspace{30.0pt}\textit{July 2015 – June 2016}\\ The incremental development %method reduced three-man days of development time on a 14-day sprint.
+%    \item Created Production like testing environments in AWS Cloud for sprint %teams to enhance test-driven development. The new process promoted quality %development culture. The number of defects were reduced by one-fifth. The time %saved in fixing bugs increased the development time by 15% per week.
+%\end{itemize}
+%\end{flushleft}
+
+\section{SELECTED PUBLICATIONS}
+\vspace{1mm}
+\begin{minipage}{\maincolumnwidth}%
+	\small{
+	\begin{enumerate}
+	    \item \customcvpub{\BF{R. Zhao}, Y. Hu, J. Dotzel, C. De Sa, and Z. Zhang.}{Improving Neural Network Quantization without Retraining using Outlier Channel Splitting}{In submission, preprint at arXiv:1901.09504}{Jan. 2019}
+    	\item \customcvpub{\BF{R. Zhao}, Y. Hu, J. Dotzel, C. De Sa, and Z. Zhang.}{Building Efficient Deep Neural Networks with Unitary Group Convolutions}{In submission, preprint at arXiv:1811.07755}{Nov. 2018}
+        \item \customcvpub{E. Chung, J. Fowers, K. Ovtcharov, M. Papamichael, A. Caulfield, T. Massengill, M. Liu, D. Lo, S. Alkalay, M. Haselman, M. Abeydeera, L. Adams, H. Angepat, C. Boehn, D. Chiou, O. Firestein, A. Forin, K. S. Gatlin, M. Ghandi, S. Heil, K. Holohan, A. El Husseini, T. Juhasz, K. Kagi, R. K. Kovvuri, S. Lanka, F. van Megen, D. Mukhortov, P. Patel, B. Perez, A. G. Rapsang, S. K. Reinhardt, B. D. Rouhani, A. Sapek, R. Seera, S. Shekar, B. Sridharan, G. Weisz, L. Woods, P. Y. Xiao, D. Zhang, \BF{R. Zhao}, and D. Burger.}{Serving DNNs in Real Time at Datacenter Scale with Project Brainwave}{IEEE Micro}{Mar. 2018}
+        \item \customcvpub{S. Davidson, S. Xie, C. Torng, K. Al-Hawaj, A. Rovinski, T. Ajayi, L. Vega, C. Zhao, \BF{R. Zhao}, S. Dai, A. Amarnath, B. Veluri, P. Gao, A. Rao, G. Liu, R. K. Gupta, Z. Zhang, R. G. Dreslinski, C. Batten, and M. B. Taylor.}{The Celerity Open-Source 511-Core RISC-V Tiered Accelerator Fabric: Fast Architectures and Design Methodologies for Fast Chips}{IEEE Micro}{Mar. 2018}
+        \item \customcvpub{\BF{R. Zhao}, W. Song, W. Zhang, T. Xing, J.-H. Lin, M. Srivastava, R. Gupta, and Z. Zhang.}{Accelerating Binarized Convolutional Neural Networks with Software-Programmable FPGAs}{Int’l Symp. on Field-Programmable Gate Arrays (FPGA)}{Feb. 2017}
+        \item \customcvpub{\BF{R. Zhao}, G. Liu, S. Srinath, C. Batten, and Z. Zhang.}{Improving High-Level Synthesis with Decoupled Data Structure Optimization}{Design Automation Conference (DAC)}{Jun. 2016}
+        \item \customcvpub{\BF{R. Zhao}, M. Tan, S. Dai, and Z. Zhang.}{Area-Efficient Pipelining for FPGA-Targeted High-Level Synthesis}{Design Automation Conference (DAC)}{Jun. 2015}
+    \end{enumerate}
+    }
+\end{minipage}%
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+%-----       letter       ---------------------------------------------------------
+
+\end{document}
+
+
+%% end of file `template.tex'.

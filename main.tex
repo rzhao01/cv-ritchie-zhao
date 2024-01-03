@@ -41,7 +41,7 @@
 % personal data
 \name{Ritchie Zhao}{}
 % \title{Curriculum Vitae}                               % optional, remove / comment the line if not wanted
-\address{16212 NE 57th Street}{Redmond, WA 98052}{USA}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+\address{Redmond, WA, USA}{}{}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
 % \phone[mobile]{909-839-3097}                   % optional, remove / comment the line if not wanted
 % \phone[fixed]{01234 123456}                    % optional, remove / comment the line if not wanted
 %\phone[fax]{+3~(456)~789~012}                      % optional, remove / comment the line if not wanted
@@ -151,100 +151,69 @@
 \end{center}
 
 %----------------------------------------------------------------------------------
-\section{RESEARCH INTERESTS}
-\vspace{-1mm}
-Hardware acceleration for machine learning, efficient neural network training and inference, neural network quantization, high-level synthesis (HLS) for FPGAs
+\section{HIGHLIGHTS}
+%\vspace{-1mm}
+\begin{minipage}{\maincolumnwidth}%
+    Proven innovator in data formats for deep learning. Engineering lead for LLM experiment infrastructure and model quantization library at Microsoft.
+    Key contributor to the Microscaling (MX) data format and MX library (github.com/microsoft/microxcaling).
+\end{minipage}%
 
 %----------------------------------------------------------------------------------
-\section{SKILLS}
-\vspace{-1mm}
-\begin{minipage}{\maincolumnwidth}%
-    Python, C, C++, Vivado HLS, TensorFlow, PyTorch, Verilog, LaTek
-\end{minipage}%
+\section{AREAS OF EXPERTISE}
+%\vspace{-1mm}
+Hardware acceleration for deep learning, efficient LLM training and inference, CUDA kernels for deep learning, high-level synthesis for FPGAs
       
 %----------------------------------------------------------------------------------
 \section{EDUCATION}
-\vspace{-1mm}
+%\vspace{-1mm}
 {\customcventry{Aug 2014 - Sept 2019}{PhD in Electrical and Computer Engineering}{Cornell University}{Ithaca, NY}{}{Advisor: Zhiru Zhang}}
 
 {\customcventry{Sept 2009 - May 2014}{BS in Electrical and Computer Engineering}{University of Toronto}{Toronto, ON}{}{GPA: 3.92, Graduated with Honors}}
 
 %----------------------------------------------------------------------------------
-\section{RESEARCH PROJECTS}
-\vspace{-1mm}
-{\customcvproject{DNN Quantization with Outlier Channel Splitting [1]}{Aug 2018 - Feb 2019}
-  {\begin{itemize}
-    \item Proposed a technique to improve DNN quantization without retraining, targeting scenarios where training for quantization is not possible (e.g. ML service providers with black-box customer models).
-    \item Results show improved accuracy over state-of-the-art clipping methods. Open-source code available at https://github.com/cornell-zhang/dnn-quant-ocs.
-  \end{itemize}
-  }
-}
-
-{\customcvproject{Efficient DNNs with Unitary Group Convolutions [2]}{Aug 2017 - May 2018}
-{\begin{itemize}
-  \item Explored the composition of group convolutions with unitary transforms to build efficient DNN architectures; this idea generalizes ShuffleNet and CirCNN from literature.
-  \item Proposed to use the hardware-efficient Hadamard transform. Hadamard networks outperform ShuffleNet with no parameter/multiply overhead and matches CirCNN with fewer multiplies.
-\end{itemize}
-}
-}
-
-{\customcvproject{Binarized Neural Network Accelerator for FPGA [4,5]}{May 2016 – May 2017}
-{\begin{itemize}
-  \item Designed an accelerator for BNNs on an embedded FPGA platform (Xilinx Zedboard). Achieved 15x speedup over embedded GPU with less power and negligible accuracy loss.
-  \item The same accelerator was ported to Celerity, an academic ASIC taped-out to silicon at TSMC 16nm process.
-\end{itemize}
-}
-}
-
-{\customcvproject{Synthesizable Halide-to-Verilog}{Jan 2016 – Apr 2016}
-{\begin{itemize}
-  \item Modified the Halide embedded DSL to generate HLS-synthesizable code and to support HLS pragmas.
-  \item Project was passed off to another PhD student.
-\end{itemize}
-}
-}
-
-{\customcvproject{Decoupled Data Structures for HLS [6]}{Jun 2015 – Jan 2016}
-{\begin{itemize}
-  \item Proposed mapping certain data structures (e.g. heaps, hash tables) to a decoupled architectural template. This enables a modular design flow while exploiting parallelism between method calls and the main program.
-\end{itemize}
-}
-}
-
-{\customcvproject{Joint Scheduling and Mapping for HLS [7]}{Aug 2014 – May 2015}
-{\begin{itemize}
-  \item Developed a mixed-ILP method to jointly perform HLS pipeline scheduling and downstream LUT-mapping.
-  \item Results show significant area savings in logic-heavy designs via cross-layer optimization.
-  \item Implemented the technique as an LLVM pass using IBM ILOG CLEX as the mILP solver.
-\end{itemize}
-}
-}
-
-%----------------------------------------------------------------------------------
-\newpage
 \section{INDUSTRY EXPERIENCE}
-\vspace{-1mm}
+%\vspace{-1mm}
+{\customcventrytwo{May 2022 - Present}{Sept 2019 - Apr 2022}{Senior Data Science Manager}{Senior Hardware Engineer}{Microsoft}{Redmond, WA}{}
+{\begin{itemize}
+  \item Researched and implemented novel data formats and quantization algorithms for deep learning using specialized hardware.
+        Ran hundreds of experiments on quantized LLM training and inference.
+  \item Engineering lead and codebase owner for our team's LLM training infrastructure and quantization library.
+        Implemented custom CUDA kernels to speed up quantization operations.
+  \item Key contributor to the Microscaling (MX) Specification, a data format ratified by 7 major companies including NVIDIA, Meta, and Intel.
+        Met with representatives from other companies to align on the format. Led the design of the FP32 to MX conversion protocol.
+        Lead developer for the open-source MX library.
+  \item Key engineer for Microsoft's OpenAI engagement. Ran experiments on highly confidential production models to explore opportunities for acceleration.
+  \item Promoted to manager in 2022, leading a team of two engineers.
+  \item Work had major impact on the Azure Maia 100 accelerator and OpenAI inference workloads. Research led to three publications [1,2,3] and four successful patents.
+\end{itemize}
+}
+}
+
+\vspace{2mm}
 {\customcventrytwo{May 2018 - Aug 2018}{May 2017 - Aug 2017}{Research Intern}{Research Intern}{Microsoft Research}{Redmond, WA}{}
 {\begin{itemize}
-  \item Researched and prototyped novel techniques to quantize DNNs for efficient deployment on the Brainwave FPGA accelerator system. Gathered experimental data on the quantized accuracy of internal models and contributed to the first technical publication of Brainwave [3].
+  \item Researched and prototyped DNN quantization techniques, targeting deployment on Microsoft's FPGA-based Brainwave accelerator.
+        Gathered experimental data for the first technical publication of Brainwave [7].
   \item Assisted in engineering a TensorFlow quantization library used in serving production DNN models.
-  \item Proposed and developed new methods to automate the quantization flow of trained models, making quantization more user-friendly for non-experts in ML.
+  \item Proposed and developed new methods to automate the quantization flow of trained models.
 \end{itemize}
 }
 }
 
+%\vspace{2mm}
+\newpage
 {\customcventry{May 2014 - Aug 2014}{Extreme Blue Technical Intern}{IBM}{Toronto, ON}{}
 {\begin{itemize}
-  \item Assisted the development of IBM Dash, a mathematical programming language which generates optimized code for heterogeneous hardware systems.
-  \item Engineered the GPU back-end for Dash using CUDA. Obtained 16x speedup on option pricing with Monte Carlo Black-Scholes compared to hand-optimized C.
+  \item Assisted the research and development of a Matlab-like programming language which statically compiles to optimized code for CPU or GPU.
+  \item Performed extensive engineering on the GPU back-end using CUDA. Obtained 16x speedup on option pricing with Monte Carlo Black-Scholes compared to hand-optimized C.
 \end{itemize}
 }
 }
 
-{\customcventry{May 2012 - Aug 2013}{Engineering Intern}{Altera Corporation}{Toronto, ON}{}
+\vspace{2mm}
+{\customcventry{May 2012 - Aug 2013}{Engineering Intern}{Altera Corporation (now Intel)}{Toronto, ON}{}
 {\begin{itemize}
-  \item Assisted timing team to create and maintain timing models for Altera's IV and V FPGA families.
-  \item Performed end-to-end testing for the Quartus II Timing Analyzer.
+  \item Performed end-to-end testing for the Quartus II Timing Analyzer. Maintained timing models for Altera's IV and V FPGA families.
   \item Created software patches for a key Altera customer while coordinating with field engineers.
 \end{itemize}
 }
@@ -261,18 +230,87 @@ Hardware acceleration for machine learning, efficient neural network training an
 \section{SELECTED PUBLICATIONS}
 \vspace{1mm}
 \begin{minipage}{\maincolumnwidth}%
-	\small{
-	\begin{enumerate}
-	      \item \customcvpub{\BF{R. Zhao}, Y. Hu, J. Dotzel, C. De Sa, and Z. Zhang.}{Improving Neural Network Quantization without Retraining using Outlier Channel Splitting}{To appear in Int'l Conf. on Machine Learning (ICML)}{Jun. 2019}
-    	  \item \customcvpub{\BF{R. Zhao}, Y. Hu, J. Dotzel, C. De Sa, and Z. Zhang.}{Building Efficient Deep Neural Networks with Unitary Group Convolutions}{To appear in Conf. on Computer Vision and Pattern Recognition (CVPR)}{Jun. 2019}
-        \item \customcvpub{E. Chung, J. Fowers, K. Ovtcharov, M. Papamichael, A. Caulfield, T. Massengill, M. Liu, D. Lo, S. Alkalay, M. Haselman, M. Abeydeera, L. Adams, H. Angepat, C. Boehn, D. Chiou, O. Firestein, A. Forin, K. S. Gatlin, M. Ghandi, S. Heil, K. Holohan, A. El Husseini, T. Juhasz, K. Kagi, R. K. Kovvuri, S. Lanka, F. van Megen, D. Mukhortov, P. Patel, B. Perez, A. G. Rapsang, S. K. Reinhardt, B. D. Rouhani, A. Sapek, R. Seera, S. Shekar, B. Sridharan, G. Weisz, L. Woods, P. Y. Xiao, D. Zhang, \BF{R. Zhao}, and D. Burger.}{Serving DNNs in Real Time at Datacenter Scale with Project Brainwave}{IEEE Micro}{Mar. 2018}
-        \item \customcvpub{S. Davidson, S. Xie, C. Torng, K. Al-Hawaj, A. Rovinski, T. Ajayi, L. Vega, C. Zhao, \BF{R. Zhao}, S. Dai, A. Amarnath, B. Veluri, P. Gao, A. Rao, G. Liu, R. K. Gupta, Z. Zhang, R. G. Dreslinski, C. Batten, and M. B. Taylor.}{The Celerity Open-Source 511-Core RISC-V Tiered Accelerator Fabric: Fast Architectures and Design Methodologies for Fast Chips}{IEEE Micro}{Mar. 2018}
+\small{
+    \begin{enumerate}
+        \item \customcvpub{B. Darvish Rouhani, \BF{R. Zhao}, A. More, M. Hall, A. Khodamoradi, S. Deng, D. Choudhary, M. Cornea, E. Dellinger, K. Denolf, S. Dusan, V. Elango, M. Golub, A. Heinecke, P. James-Roxby, D. Jani, G. Kolhe, M. Langhammer, A. Li, L. Melnick, M. Mesmakhosroshahi, A. Rodriguez, M. Schulte, R. Shafipour, L. Shao, M. Siu, P. Dubey, P. Micikevicius, M. Naumov, C. Verrilli, R. Wittig, D. Burger, E. Chung}{Microscaling Data Formats for Deep Learning}{arXiv e-print}{Oct. 2023}
+        \item \customcvpub{B. Darvish Rouhani, \BF{R. Zhao}, V. Elango, R. Shafipour, M. Hall, M. Mesmakhosroshahi, A. More, L. Melnick, M. Golub, G. Varatkar, L. Shao, G. Kolhe, D. Melts, J. Klar, R. L'Heureux, M. Perry, D. Burger, E. Chung}{With Shared Microexponents, A Little Shifting Goes a Long Way}{Int'l Conf. on Computer Architecture (ISCA) Industry Track}{Jun. 2023}
+        \item \customcvpub{B. Darvish Rouhani, D. Lo, \BF{R. Zhao}, M. Liu, J. Fowers, K. Ovtcharov, A. Vinogradsky, S. Massengill, L. Yang, R. Bittner, A. Forin, H. Zhu, T. Na, P. Patel, S. Che, L. C. Koppaka, X. Sogn, S. Som, K. Das, S. Reinhardt, S. Lanka,  E. Chung, and D. Burger.}{Pushing the Limits of Narrow Precision Inference at Cloud Scale with Microsoft Floating Point}{Advances in Neural Information Processing Systems (NeurIPS)}{Dec. 2020}
+        \item \customcvpub{Y. Zhang, \BF{R. Zhao}, W. Hua, N. Xu, G. E. Suh, Z. Zhang}{Precision Gating: Improving Neural Network Efficiency with Dynamic Dual-Precision Activations}{Int'l Conf. on Learning Representations (ICLR)}{Apr. 2020}
+        \item \customcvpub{\BF{R. Zhao}, Y. Hu, J. Dotzel, C. De Sa, and Z. Zhang.}{Improving Neural Network Quantization without Retraining using Outlier Channel Splitting}{Int'l Conf. on Machine Learning (ICML)}{May. 2019}
+        \item \customcvpub{\BF{R. Zhao}, Y. Hu, J. Dotzel, C. De Sa, and Z. Zhang.}{Building Efficient Deep Neural Networks with Unitary Group Convolutions}{Conf. on Computer Vision and Pattern Recognition (CVPR)}{May. 2019}
+        \item \customcvpub{E. Chung, J. Fowers, K. Ovtcharov, M. Papamichael, A. Caulfield, T. Massengill, M. Liu, D. Lo, S. Alkalay, M. Haselman, M. Abeydeera, L. Adams, H. Angepat, C. Boehn, D. Chiou, O. Firestein, A. Forin, K. S. Gatlin, M. Ghandi, S. Heil, K. Holohan, A. El Husseini, T. Juhasz, K. Kagi, R. K. Kovvuri, S. Lanka, F. van Megen, D. Mukhortov, P. Patel, B. Perez, A. G. Rapsang, S. K. Reinhardt, B. Darvish Rouhani, A. Sapek, R. Seera, S. Shekar, B. Sridharan, G. Weisz, L. Woods, P. Y. Xiao, D. Zhang, \BF{R. Zhao}, and D. Burger.}{Serving DNNs in Real Time at Datacenter Scale with Project Brainwave}{IEEE Micro}{Mar. 2018}
         \item \customcvpub{\BF{R. Zhao}, W. Song, W. Zhang, T. Xing, J.-H. Lin, M. Srivastava, R. Gupta, and Z. Zhang.}{Accelerating Binarized Convolutional Neural Networks with Software-Programmable FPGAs}{Int’l Symp. on Field-Programmable Gate Arrays (FPGA)}{Feb. 2017}
         \item \customcvpub{\BF{R. Zhao}, G. Liu, S. Srinath, C. Batten, and Z. Zhang.}{Improving High-Level Synthesis with Decoupled Data Structure Optimization}{Design Automation Conference (DAC)}{Jun. 2016}
         \item \customcvpub{\BF{R. Zhao}, M. Tan, S. Dai, and Z. Zhang.}{Area-Efficient Pipelining for FPGA-Targeted High-Level Synthesis}{Design Automation Conference (DAC)}{Jun. 2015}
+        %\item \customcvpub{S. Davidson, S. Xie, C. Torng, K. Al-Hawaj, A. Rovinski, T. Ajayi, L. Vega, C. Zhao, \BF{R. Zhao}, S. Dai, A. Amarnath, B. Veluri, P. Gao, A. Rao, G. Liu, R. K. Gupta, Z. Zhang, R. G. Dreslinski, C. Batten, and M. B. Taylor.}{The Celerity Open-Source 511-Core RISC-V Tiered Accelerator Fabric: Fast Architectures and Design Methodologies for Fast Chips}{IEEE Micro}{Mar. 2018}
     \end{enumerate}
     }
 \end{minipage}%
+
+\section{GRANTED PATENTS}
+\vspace{1mm}
+\begin{minipage}{\maincolumnwidth}%
+\small{
+    \begin{enumerate}
+        \item \customcvpub{D. Burger, E. Chung, B. Darvish Rouhani, D. Lo, \BF{R. Zhao}}{Flow for Quantized Neural Networks}{US Patent 11645493}{05/09/2023}
+        \item \customcvpub{K. Ovtcharov, E. Chung, V. Akhlaghi, \BF{R. Zhao}}{Differential Bit Width Neural Architecture Search}{US Patent 11604960}{03/14/2023}
+        \item \customcvpub{E. Chung, D. Lo, J. Zhang, \BF{R. Zhao}}{Residual Quantization for Neural Networks}{US Patent 11586883}{02/21/2023}
+        \item \customcvpub{E. Chung, D. Lo, \BF{R. Zhao}}{Outlier Quantization for Training and Inference}{US Patent 11574239}{02/07/2023}
+    \end{enumerate}
+    }
+\end{minipage}%
+
+%----------------------------------------------------------------------------------
+\newpage
+\section{RESEARCH PROJECTS}
+%\vspace{-1mm}
+{\customcvproject{DNN Quantization with Outlier Channel Splitting [5]}{Aug 2018 - Feb 2019}
+  {\begin{itemize}
+    \item Proposed a technique to improve DNN quantization without retraining, targeting post-training quantization for inference.
+    \item Results show improved accuracy over state-of-the-art post-traininng clipping methods. Open-source code available.
+  \end{itemize}
+  }
+}
+
+{\customcvproject{Efficient DNNs with Unitary Group Convolutions [6]}{Aug 2017 - May 2018}
+{\begin{itemize}
+  \item Explored the composition of group convolutions with unitary transforms to build efficient DNN architectures; this idea generalizes ShuffleNet and CirCNN from literature.
+  \item Proposed to use the hardware-efficient Hadamard transform. Hadamard networks outperform ShuffleNet with no parameter/multiply overhead and matches CirCNN with fewer multiplies.
+\end{itemize}
+}
+}
+
+{\customcvproject{Binarized Neural Network Accelerator for FPGA [8]}{May 2016 – May 2017}
+{\begin{itemize}
+  \item Designed an accelerator for BNNs on an embedded FPGA platform (Xilinx Zedboard). Achieved 15x speedup over embedded GPU with less power and negligible accuracy loss.
+  \item The same accelerator was ported to Celerity, an academic ASIC taped-out to silicon at TSMC 16nm process.
+\end{itemize}
+}
+}
+
+{\customcvproject{Synthesizable Halide-to-Verilog}{Jan 2016 – Apr 2016}
+{\begin{itemize}
+  \item Modified the Halide embedded DSL to generate HLS-synthesizable code and to support HLS pragmas.
+  \item Project was passed off to another PhD student.
+\end{itemize}
+}
+}
+
+{\customcvproject{Decoupled Data Structures for HLS [9]}{Jun 2015 – Jan 2016}
+{\begin{itemize}
+  \item Proposed mapping certain data structures (e.g. heaps, hash tables) to a decoupled architectural template. This enables a modular design flow while exploiting parallelism between method calls and the main program.
+\end{itemize}
+}
+}
+
+{\customcvproject{Joint Scheduling and Mapping for HLS [10]}{Aug 2014 – May 2015}
+{\begin{itemize}
+  \item Developed a mixed-ILP method to jointly perform HLS pipeline scheduling and downstream LUT-mapping.
+  \item Results show significant area savings in logic-heavy designs via cross-layer optimization.
+  \item Implemented the technique as an LLVM pass using IBM ILOG CLEX as the mILP solver.
+\end{itemize}
+}
+}
 
 % Publications from a BibTeX file without multibib
 %  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
